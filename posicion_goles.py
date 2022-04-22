@@ -1,5 +1,3 @@
-
-
 import pandas as pd
 import json
 import matplotlib.pyplot as plt
@@ -8,10 +6,10 @@ from paint_field import paint_field
 
 # CARGA DE ARCHIVOS
 
-ruta_jugadores = "C:/Users/mcond/OneDrive/Escritorio/eventos_2020_2021.csv"
+ruta_jugadores = "inputs/eventos_2020_2021.csv"
 df_jugadores = pd.read_csv(ruta_jugadores)
 
-ruta_equipos = "C:/Users/mcond/OneDrive/Escritorio/opta_id_equipos.json"
+ruta_equipos = "inputs/opta_id_equipos.json"
 with open(ruta_equipos, 'r') as fp:
     id_equipos  = json.load(fp)
 
@@ -34,10 +32,4 @@ df_Karim_Benzema = df_jugadores[df_jgd][df_jugadores[df_jgd]['player']== 'Karim 
 df_Lionel_Messi = df_jugadores[df_jgd][df_jugadores['player']== 'Lionel Messi'].copy()
 
 color_campo = 'green'
-ax_campo = paint_field.field_with_2_players(color_campo, df_Karim_Benzema, df_Lionel_Messi)
-
-
-
-
-
-
+paint_field.field_with_2_players(color_campo, df_Karim_Benzema, df_Lionel_Messi)
